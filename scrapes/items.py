@@ -5,10 +5,14 @@
 # See documentation in:
 # http://doc.scrapy.org/en/latest/topics/items.html
 
-import scrapy
+from scrapy import Item, Field
+from scrapy.loader.processors import Join, Compose, TakeFirst, Compose
 
 
-class ScrapesItem(scrapy.Item):
+class BusinessItem(Item):
+    """Scrapes Business container for scraped data"""
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    title = Field(output_processor=Compose(lambda v: v[0]))
+    email = Field(output_processor=Compose(lambda v: v[3]))
+    phone_number = Field(output_processor=Compose(lambda v: v[2]))

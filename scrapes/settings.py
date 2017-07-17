@@ -13,7 +13,7 @@ BOT_NAME = 'scrapes'
 
 SPIDER_MODULES = ['scrapes.spiders']
 NEWSPIDER_MODULE = 'scrapes.spiders'
-
+ITEM_PIPELINES = {'scrapes.pipelines.ScrapesPipeline': 1}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scrapes (+http://www.yourdomain.com)'
@@ -88,3 +88,4 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
